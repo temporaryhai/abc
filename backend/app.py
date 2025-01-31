@@ -10,7 +10,7 @@ import string
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-df = pd.read_csv(r'backend\as.csv') 
+df = pd.read_csv('./backend/as.csv')
 
 def pre(text):
     words = nltk.word_tokenize(text.lower())
