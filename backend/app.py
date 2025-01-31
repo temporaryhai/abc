@@ -11,6 +11,11 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import os
 
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('punkt_tab')
+
 # Absolute path to the CSV file in the backend folder
 file_path = os.path.join(os.path.dirname(__file__), 'as.csv')
 df = pd.read_csv(file_path)
