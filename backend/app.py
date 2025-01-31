@@ -16,6 +16,13 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('punkt_tab')
 
+df['Processed'] = df['questions'].apply(pre)
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(df['Processed'])
+y = df['answers']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.01, random_state=42)
+classifier = SVC(kernel='linear')
+classifier.fit(X_train, y_train)
 # Absolute path to the CSV file in the backend folder
 file_path = os.path.join(os.path.dirname(__file__), 'as.csv')
 df = pd.read_csv(file_path)
@@ -54,13 +61,6 @@ def check(text):
     result = count >= 1
     return result
 
-df['Processed'] = df['questions'].apply(pre)
-vectorizer = TfidfVectorizer()
-X = vectorizer.fit_transform(df['Processed'])
-y = df['answers']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.01, random_state=42)
-classifier = SVC(kernel='linear')
-classifier.fit(X_train, y_train)
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
