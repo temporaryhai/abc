@@ -63,7 +63,7 @@ classifier = SVC(kernel='linear')
 classifier.fit(X_train, y_train)
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 @app.route('/chat', methods=['POST'])
 def chatbot():
