@@ -12,7 +12,7 @@ from nltk.stem import WordNetLemmatizer
 import os
 
 # Absolute path to the CSV file in the backend folder
-file_path = os.path.join(os.path.dirname(__file__), 'backend', 'as.csv')
+file_path = os.path.join(os.path.dirname(__file__), 'as.csv')
 df = pd.read_csv(file_path)
 
 def pre(text):
