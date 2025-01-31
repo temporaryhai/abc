@@ -65,7 +65,7 @@ classifier.fit(X_train, y_train)
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-@app.route('/chat', methods=['POST'])
+@app.route('/', methods=['POST'])
 def chatbot():
     try:
         data = request.json
